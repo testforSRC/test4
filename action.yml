@@ -8,10 +8,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Run Node.js script
-      run: node dist/index.js
-      shell: bash
-
     - name: Send HTTP request
       run: |
         echo "Sending HTTP request..."
