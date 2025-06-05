@@ -12,4 +12,4 @@ jobs:
       ISSUE_TITLE: ${{ github.event.issue.title }}  # 修改为全大写是更好的实践
     name: Print issue title
     steps:
-    - run: echo "${{ env.ISSUE_TITLE }}"  # 直接使用环境变量，不需要 ${{ }}
+    - run: echo "$ISSUE_TITLE"  # 直接使用环境变量，不需要 ${{ }}
