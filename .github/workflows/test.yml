@@ -5,11 +5,11 @@ on:
     types: [opened]
 
 jobs:
-  print_issue_title:
+  process_pull_request:
     runs-on: ubuntu-latest
-    env:
-      ENV_FILE: environment.yml
-      ISSUE_TITLE: ${{ github.event.issue.title }}  # 修改为全大写是更好的实践
-    name: Print issue title
     steps:
-    - run: echo "${{ env.ISSUE_TITLE }}"  # 直接使用环境变量，不需要 ${{ }}
+      - name: Echo Pull Request Body
+        env:
+          BODY: ${{ github.event.issue.title }}"
+        run: |
+          echo "Pull Request Body: $BODY"
